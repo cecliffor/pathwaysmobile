@@ -1727,3 +1727,109 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+/*--------------------------------------------------------------
+# HEADER RESPONSIVE FIXES - Topbar wrapping & Logo scaling
+--------------------------------------------------------------*/
+
+/* Fix topbar contact info wrapping */
+.header .topbar .container {
+  flex-wrap: wrap;
+  justify-content: center !important;
+}
+
+.header .topbar .contact-info {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.5rem;
+}
+
+/* Remove the fixed ms-4 margin that causes overlap on small screens */
+@media (max-width: 640px) {
+  .header .topbar .contact-info .ms-4 {
+    margin-left: 0 !important;
+  }
+  
+  .header .topbar .contact-info {
+    gap: 0.3rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* On very small screens, stack contact info vertically */
+@media (max-width: 480px) {
+  .header .topbar .contact-info {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    padding: 5px 0;
+  }
+  
+  .header .topbar {
+    height: auto !important;
+    padding: 5px 0;
+  }
+  
+  /* Allow text to wrap if needed */
+  .header .topbar .contact-info i a,
+  .header .topbar .contact-info i span {
+    white-space: normal;
+    word-break: break-word;
+  }
+}
+
+/* Fix logo scaling on mobile */
+.header .logo img {
+  max-height: 70px;
+  width: auto;
+  transition: max-height 0.2s ease;
+}
+
+@media (max-width: 768px) {
+  .header .logo img {
+    max-height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header .logo img {
+    max-height: 40px;
+  }
+}
+
+/* Ensure branding container uses flex-wrap properly */
+.header .branding .container {
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.header .logo {
+  flex-shrink: 1;
+  max-width: calc(100% - 120px);
+}
+
+/* CTA button adjustments on mobile */
+@media (max-width: 480px) {
+  .header .cta-btn {
+    font-size: 12px;
+    padding: 5px 12px;
+    margin: 0 8px 0 0 !important;
+  }
+  
+  .header .branding {
+    min-height: 60px;
+    padding: 8px 0;
+  }
+}
+
+/* Fix navmenu positioning on mobile to prevent overlap */
+@media (max-width: 1199px) {
+  .header .navmenu {
+    order: 3;
+  }
+  
+  .mobile-nav-toggle {
+    font-size: 24px;
+  }
+}
+
