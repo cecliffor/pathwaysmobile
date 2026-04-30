@@ -1128,7 +1128,9 @@ section,
 .contact .php-email-form input[type=text],
 .contact .php-email-form input[type=email],
 .contact .php-email-form input[type=tel],
-.contact .php-email-form textarea {
+.contact .php-email-form input[type=date],
+.contact .php-email-form textarea,
+.contact .php-email-form select {
   font-size: 14px;
   padding: 10px 15px;
   box-shadow: none;
@@ -1140,16 +1142,30 @@ section,
 
 .contact .php-email-form input[type=text]:focus,
 .contact .php-email-form input[type=email]:focus,
-.contact .php-email-form input[type=tel]:focus
-.contact .php-email-form textarea:focus {
+.contact .php-email-form input[type=tel]:focus,
+.contact .php-email-form input[type=date]:focus,
+.contact .php-email-form textarea:focus,
+.contact .php-email-form select:focus {
   border-color: var(--accent-color);
 }
 
 .contact .php-email-form input[type=text]::placeholder,
 .contact .php-email-form input[type=email]::placeholder,
 .contact .php-email-form input[type=tel]::placeholder,
+.contact .php-email-form input[type=date]::placeholder,
 .contact .php-email-form textarea::placeholder {
-  color: color-mix(in srgb, var(--default-color), transparent 70%);
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+}
+
+/* Fix for date input placeholder text */
+.contact .php-email-form input[type="date"] {
+    color: color-mix(in srgb, var(--default-color), transparent 40%);
+}
+
+/* When date is selected, use normal text color */
+.contact .php-email-form input[type="date"]:valid,
+.contact .php-email-form input[type="date"]:focus {
+    color: var(--default-color);
 }
 
 .contact .php-email-form button[type=submit] {
@@ -1163,6 +1179,29 @@ section,
 
 .contact .php-email-form button[type=submit]:hover {
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
+}
+
+/* Make dropdown default text match placeholder color */
+.contact .php-email-form select {
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+}
+
+/* When user makes a selection, return to normal text color */
+.contact .php-email-form select:not([value=""]):valid {
+  color: var(--default-color);
+}
+
+/* Darken the checkboxes */
+.contact .php-email-form .form-check-input {
+    border: 2px solid color-mix(in srgb, var(--default-color), transparent 40%);
+    background-color: var(--surface-color);
+    cursor: pointer;
+}
+
+/* Darken the checkmark when checked */
+.contact .php-email-form .form-check-input:checked {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
 }
 
 /*--------------------------------------------------------------
