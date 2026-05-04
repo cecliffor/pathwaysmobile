@@ -1309,4 +1309,21 @@ section,
   }
 }
 
+/* Condition List - pill style tags */
+.condition-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
 
+.condition-list li {
+  background-color: #f0f4f8;
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: #1a3a5c;
+  display: inline-block;
+}
